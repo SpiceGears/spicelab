@@ -14,9 +14,9 @@ services:
       DB_NAME: db
       CRYPT_COST: "14"
     ports:
-      - "8080:8080"
-      - "8081:8081"
-      - "8085:5150"
+      - "58831:8080"
+      - "58832:8081"
+      - "58833:5150"
     depends_on:
       - db
     networks:
@@ -42,7 +42,7 @@ services:
       context: .
       dockerfile: spicelab/Dockerfile
     environment:
-      BACKEND: http://spiceapi:8080/
+      BACKEND: http://spiceapi:58831/
     ports:
       - "80:3000"
     depends_on:
