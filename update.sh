@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/ubuntu/spicelab
+
 # Perform git pull and capture output
 GIT_OUTPUT=$(git pull)
 
