@@ -5,7 +5,11 @@ export async function PUT(
     const body = await request.json();
     const { projectId, taskId } = params;
 
+
+    const atok = await request.headers.get('Authorization');
+
     const backend = process.env.BACKEND || "http://spiceapi:58831/";
+
 
     try {
         // Log the request body
@@ -16,6 +20,7 @@ export async function PUT(
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': atok
             },
             body: JSON.stringify(body)
         });
