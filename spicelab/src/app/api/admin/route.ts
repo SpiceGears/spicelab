@@ -3,7 +3,7 @@ export const dynamic = 'force-dynamic';
 // app/api/user/getInfo/route.ts
 export async function GET(request: Request) {
     try {
-        const backend = process.env.BACKEND|| "http://spiceapi:8080/";
+        const backend = process.env.BACKEND|| "http://spiceapi:58831/";
 
         const atok = request.headers.get("Authorization");
         const response = await fetch(`${backend}api/admin/getUnapprovedUsers`, {

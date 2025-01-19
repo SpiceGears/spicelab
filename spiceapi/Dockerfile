@@ -1,8 +1,8 @@
 # Bazowy obraz z runtime .NET
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 58831
+EXPOSE 58832
 
 # Obraz z SDK do buildowania aplikacji
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
@@ -21,12 +21,5 @@ RUN dotnet publish -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-
-ENV DB_PASS="ajh4pDmG7QuzLZ9tH5sJn1KlA2I6eV3W8yBvXoNrPfTqYcRiSgE0wMxO7F1dU9" \
-    DB_HOST="db" \
-    DB_USER="postgres" \
-    DB_NAME="db" \
-    CRYPT_COST="14" \
-    WORKDIR="/app/filebucket"
 
 ENTRYPOINT ["dotnet", "SpiceAPI.dll"]
