@@ -20,5 +20,5 @@ if [[ "$GIT_OUTPUT" != *"Already up to date."* ]]; then
     # Start containers
     docker compose -f docker-compose.prod.yml up -d
 else
-    echo "[$CURRENT_DATETIME] No updates were pulled. Docker containers are not restarted." >> update.log
+    echo "[$CURRENT_DATETIME] No updates were pulled. Docker containers are not restarted."
 fi
