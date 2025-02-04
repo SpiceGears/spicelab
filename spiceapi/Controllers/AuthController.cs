@@ -104,6 +104,10 @@ namespace SpiceAPI.Controllers
                     break;
                 default: return BadRequest($"Department parameter: {ui.Department} is not an allowed value");
             }
+
+            var eu = await db.Users.FirstOrDefaultAsync(u => u.Email == ui.Email);
+
+            if (eu != null) return Conflict("This email is already taken");
             
             
             User user = new User();
